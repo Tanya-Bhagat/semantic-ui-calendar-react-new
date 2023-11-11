@@ -15,12 +15,12 @@ const config = {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node-modules/,
+        exclude: /node_modules/,
         loader: 'ts-loader',
       },
       {
         test: /\.jsx?$/,
-        exclude: /node-modules/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
       },
     ],

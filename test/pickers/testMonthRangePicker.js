@@ -345,8 +345,9 @@ describe('<MonthRangePicker />: switchToNextPage', () => {
 
     assert(_.isFunction(wrapper.instance().switchToNextPage), 'has `switchToNextPage` method');
     assert.equal(wrapper.instance().state.date.year(), 2015, '`date` unshifted yet');
-    wrapper.instance().switchToNextPage();
-    assert.equal(wrapper.instance().state.date.year(), 2015 + 1, '`date` shifted');
+    wrapper.instance().switchToNextPage(null, null, () => {
+      assert.equal(wrapper.instance().state.date.year(), 2015 + 1, '`date` shifted');
+    });
   });
 });
 
@@ -358,7 +359,8 @@ describe('<MonthRangePicker />: switchToPrevPage', () => {
 
     assert(_.isFunction(wrapper.instance().switchToPrevPage), 'has `switchToPrevPage` method');
     assert.equal(wrapper.instance().state.date.year(), 2015, '`date` unshifted yet');
-    wrapper.instance().switchToPrevPage();
-    assert.equal(wrapper.instance().state.date.year(), 2015 - 1, '`date` shifted');
+    wrapper.instance().switchToPrevPage(null, null, () => {
+      assert.equal(wrapper.instance().state.date.year(), 2015 - 1, '`date` shifted');
+    });
   });
 });

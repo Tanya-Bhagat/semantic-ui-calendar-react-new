@@ -9,13 +9,16 @@ import _ from 'lodash';
 import DateInput from '../../src/inputs/DateInput';
 
 describe('<DateInput />: handleSelect', () => {
-  it('call `onChange` when in `day` mode (default)', () => {
+  it('call `onChange` when in `day` mode (default)', async () => {
     const onChangeFake = sinon.fake();
     const wrapper = mount(<DateInput
       dateFormat="YYYY-MM-DD"
       onChange={onChangeFake} />);
 
     wrapper.instance().handleSelect('click', { value: { year: 2030, month: 4, date: 3 } });
+    await new Promise(resolve => setImmediate(resolve));
+    wrapper.update();
+
     const calledWithArgs = onChangeFake.args[0];
 
     assert(onChangeFake.calledOnce, '`onChange` callback called once');
@@ -70,9 +73,11 @@ describe('<DateInput />: switchToPrevMode', () => {
     setTimeout(done);
   }, 0);
 
-  it('not yet switched to previous mode', () => {
+  it('not yet switched to previous mode', async () => {
     assert.equal(wrapper.state('mode'), 'day', 'mode is not changed yet');
     wrapper.instance().switchToPrevMode();
+    await new Promise(resolve => setImmediate(resolve));
+    wrapper.update();
   });
 
   it('switched to prev mode', () => {
@@ -87,9 +92,11 @@ describe('<DateInput />: switchToNextMode', () => {
     setTimeout(done);
   }, 0);
 
-  it('not yet switched to next mode', () => {
+  it('not yet switched to next mode', async () => {
     assert.equal(wrapper.state('mode'), 'day', 'mode is not changed yet');
     wrapper.instance().switchToNextMode();
+    await new Promise(resolve => setImmediate(resolve));
+    wrapper.update();
   });
 
   it('switched to next mode', () => {

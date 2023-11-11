@@ -785,8 +785,9 @@ describe('<DatesRangePicker />: switchToNextPage', () => {
       initializeWith={date} />);
 
     assert.equal(wrapper.state('date').month(), 7, 'month not changed yet');
-    wrapper.instance().switchToNextPage();
-    assert.equal(wrapper.state('date').month(), 7 + 1, 'month shifted one month forward');
+    wrapper.instance().switchToNextPage(null, null, () => {
+      assert.equal(wrapper.state('date').month(), 7 + 1, 'month shifted one month forward');
+    });
   });
 });
 
@@ -798,7 +799,8 @@ describe('<DatesRangePicker />: switchToPrevPage', () => {
       initializeWith={date} />);
 
     assert.equal(wrapper.state('date').month(), 7, 'month not changed yet');
-    wrapper.instance().switchToPrevPage();
-    assert.equal(wrapper.state('date').month(), 7 - 1, 'month shifted one month backward');
+    wrapper.instance().switchToPrevPage(null, null, () => {
+      assert.equal(wrapper.state('date').month(), 7 - 1, 'month shifted one month backward');
+    });
   });
 });

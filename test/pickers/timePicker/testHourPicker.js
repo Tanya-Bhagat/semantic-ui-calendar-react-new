@@ -290,8 +290,9 @@ describe('<HourPicker />: switchToNextPage', () => {
       initializeWith={date} />);
 
     assert.equal(wrapper.state('date').date(), 12, 'date not changed yet');
-    wrapper.instance().switchToNextPage();
-    assert.equal(wrapper.state('date').date(), 12 + 1, 'date shifted one day forward');
+    wrapper.instance().switchToNextPage(null, null, () => {
+      assert.equal(wrapper.state('date').date(), 13, 'date shifted one day forward');
+    });
   });
 });
 
@@ -303,7 +304,8 @@ describe('<HourPicker />: switchToPrevPage', () => {
       initializeWith={date} />);
 
     assert.equal(wrapper.state('date').date(), 12, 'date not changed yet');
-    wrapper.instance().switchToPrevPage();
-    assert.equal(wrapper.state('date').date(), 12 - 1, 'date shifted one day backward');
+    wrapper.instance().switchToPrevPage(null, null, () => {
+      assert.equal(wrapper.state('date').date(), 11, 'date shifted one day backward');
+    });
   });
 });
