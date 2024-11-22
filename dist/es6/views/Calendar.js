@@ -44,7 +44,8 @@ var Calendar = /** @class */ (function (_super) {
     }
     Calendar.prototype.render = function () {
         var _a = this.props, children = _a.children, outlineOnFocus = _a.outlineOnFocus, pickerWidth = _a.pickerWidth, pickerStyle = _a.pickerStyle, rest = __rest(_a, ["children", "outlineOnFocus", "pickerWidth", "pickerStyle"]);
-        var style = __assign({ width: pickerWidth, minWidth: '22em', 
+        var style = __assign({ width: pickerWidth, 
+            // minWidth: '22em',
             // Prevent poped up picker from beeing outlined on focus.
             // Inline picker should be outlined when in focus.
             outline: outlineOnFocus ? undefined : 'none' }, pickerStyle);
