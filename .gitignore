@@ -1,5 +1,5 @@
 node_modules
-dist
+#dist
 calendar.bundle.js
 calendar.bundle.js.map
 # rely on yarn.lock instead
@@ -23,7 +23,7 @@ package-lock.json
 nbproject/private/
 build/
 nbbuild/
-dist/
+#dist/
 nbdist/
 .nb-gradle/
 
