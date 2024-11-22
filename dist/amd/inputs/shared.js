@@ -1,7 +1,8 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getDisabledYears = exports.getDisabledMonths = void 0;
+    exports.getDisabledMonths = getDisabledMonths;
+    exports.getDisabledYears = getDisabledYears;
     /**
      * Filter out all moments that don't have
      * all dates in month disabled.
@@ -37,7 +38,6 @@ define(["require", "exports"], function (require, exports) {
         }
         return disabledMonths;
     }
-    exports.getDisabledMonths = getDisabledMonths;
     /**
      * Filter out all moments that don't have
      * all months in year disabled.
@@ -73,5 +73,4 @@ define(["require", "exports"], function (require, exports) {
         }
         return disabledYears;
     }
-    exports.getDisabledYears = getDisabledYears;
 });

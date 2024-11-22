@@ -3,7 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInitialDatePosition = exports.testExport = exports.isPrevPageAvailable = exports.isNextPageAvailable = exports.getMarkedDays = exports.getDisabledDays = exports.getDefaultEnabledDayPositions = exports.buildDays = void 0;
+exports.testExport = void 0;
+exports.buildDays = buildDays;
+exports.getDefaultEnabledDayPositions = getDefaultEnabledDayPositions;
+exports.getDisabledDays = getDisabledDays;
+exports.getMarkedDays = getMarkedDays;
+exports.isNextPageAvailable = isNextPageAvailable;
+exports.isPrevPageAvailable = isPrevPageAvailable;
+exports.getInitialDatePosition = getInitialDatePosition;
 var indexOf_1 = __importDefault(require("lodash/indexOf"));
 var lastIndexOf_1 = __importDefault(require("lodash/lastIndexOf"));
 var range_1 = __importDefault(require("lodash/range"));
@@ -21,7 +28,6 @@ function buildDays(date, daysOnPage) {
     var start = date.clone().startOf('month').startOf('week');
     return getDaysArray(start.date(), getBrakepoints(date), daysOnPage).map(function (d) { return d.toString(); });
 }
-exports.buildDays = buildDays;
 /** Return dates from ends of months.
  *
  * On one datepicker's page not only days from current month are displayed
@@ -51,7 +57,6 @@ function getDefaultEnabledDayPositions(allDays, date) {
         return (0, range_1.default)((0, indexOf_1.default)(allDays, brakepoints[0].toString()) + 1, (0, lastIndexOf_1.default)(allDays, brakepoints[1].toString()) + 1);
     }
 }
-exports.getDefaultEnabledDayPositions = getDefaultEnabledDayPositions;
 /** Return day positions that shoud be displayed as disabled. */
 function getDisabledDays(disable, maxDate, minDate, currentDate, daysOnPage, enable) {
     var dayPositions = (0, range_1.default)(daysOnPage);
@@ -94,7 +99,6 @@ function getDisabledDays(disable, maxDate, minDate, currentDate, daysOnPage, ena
     }
     return (0, sortBy_1.default)((0, uniq_1.default)(disabledDays).filter(function (day) { return !(0, isNil_1.default)(day); }));
 }
-exports.getDisabledDays = getDisabledDays;
 /** Return day positions that should be displayed as marked. */
 function getMarkedDays(marked, currentDate, daysOnPage) {
     if (marked.length === 0) {
@@ -119,7 +123,6 @@ function getMarkedDays(marked, currentDate, daysOnPage) {
         .map(function (date) { return allDatesNumb.indexOf(date); });
     return markedIndexes.filter(function (index) { return (0, includes_1.default)(activeDayPositions, index); });
 }
-exports.getMarkedDays = getMarkedDays;
 function isNextPageAvailable(date, maxDate) {
     if ((0, isNil_1.default)(maxDate)) {
         return true;
@@ -129,7 +132,6 @@ function isNextPageAvailable(date, maxDate) {
     }
     return true;
 }
-exports.isNextPageAvailable = isNextPageAvailable;
 function isPrevPageAvailable(date, minDate) {
     if ((0, isNil_1.default)(minDate)) {
         return true;
@@ -139,7 +141,6 @@ function isPrevPageAvailable(date, minDate) {
     }
     return true;
 }
-exports.isPrevPageAvailable = isPrevPageAvailable;
 // helper
 function getDaysArray(start, brakepoints, length) {
     var currentDay = start;
@@ -181,4 +182,3 @@ function getInitialDatePosition(initDate, values, selectablePositions) {
     }
     return selectable[0].position;
 }
-exports.getInitialDatePosition = getInitialDatePosition;

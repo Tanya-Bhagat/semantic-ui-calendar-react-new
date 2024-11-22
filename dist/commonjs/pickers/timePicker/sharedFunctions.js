@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCurrentDate = exports.isPrevPageAvailable = exports.isNextPageAvailable = exports.buildTimeStringWithSuffix = void 0;
+exports.buildTimeStringWithSuffix = buildTimeStringWithSuffix;
+exports.isNextPageAvailable = isNextPageAvailable;
+exports.isPrevPageAvailable = isPrevPageAvailable;
+exports.getCurrentDate = getCurrentDate;
 function buildTimeStringWithSuffix(hour, minute, timeFormat) {
     if (timeFormat === 'ampm') {
         if (parseInt(hour, 10) < 12) {
@@ -16,7 +19,6 @@ function buildTimeStringWithSuffix(hour, minute, timeFormat) {
     }
     return "".concat(hour, ":").concat(minute);
 }
-exports.buildTimeStringWithSuffix = buildTimeStringWithSuffix;
 function convertHourTo_12_Format(hour) {
     if (hour === '00' || hour === '12') {
         return '12';
@@ -36,15 +38,12 @@ function isNextPageAvailable(date, maxDate) {
     }
     return true;
 }
-exports.isNextPageAvailable = isNextPageAvailable;
 function isPrevPageAvailable(date, minDate) {
     if (minDate) {
         return minDate.isBefore(date, 'day');
     }
     return true;
 }
-exports.isPrevPageAvailable = isPrevPageAvailable;
 function getCurrentDate(date) {
     return date.format('MMMM DD, YYYY');
 }
-exports.getCurrentDate = getCurrentDate;

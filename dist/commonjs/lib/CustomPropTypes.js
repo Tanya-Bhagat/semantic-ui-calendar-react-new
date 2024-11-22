@@ -3,7 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.dateObject = exports.momentObj = void 0;
+exports.momentObj = momentObj;
+exports.dateObject = dateObject;
 var moment_1 = __importDefault(require("moment"));
 function momentObj(props, propName, componentName) {
     if (props[propName]) {
@@ -19,7 +20,6 @@ function momentObj(props, propName, componentName) {
     }
     return null;
 }
-exports.momentObj = momentObj;
 function dateObject(props, propName, componentName) {
     if (props[propName]) {
         var value = props[propName];
@@ -31,7 +31,6 @@ function dateObject(props, propName, componentName) {
     }
     return null;
 }
-exports.dateObject = dateObject;
 exports.default = {
     momentObj: momentObj,
     dateObject: dateObject,
