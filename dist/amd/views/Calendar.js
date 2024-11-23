@@ -80,6 +80,7 @@ define(["require", "exports", "react", "semantic-ui-react"], function (require, 
         Calendar.prototype.render = function () {
             var _a = this.props, children = _a.children, outlineOnFocus = _a.outlineOnFocus, pickerWidth = _a.pickerWidth, pickerStyle = _a.pickerStyle, rest = __rest(_a, ["children", "outlineOnFocus", "pickerWidth", "pickerStyle"]);
             var style = __assign({ width: pickerWidth, 
+                fontSize: '13px',
                 // minWidth: '22em',
                 // Prevent poped up picker from beeing outlined on focus.
                 // Inline picker should be outlined when in focus.
